@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">practicaso</string>
+    <string name="start_button">Start Race!</string>
+    <string name="total_race_meters">Race meters</string>
+    <string name="min_meters_rowed">Min meters rowed</string>
+    <string name="max_meters_rowed">Max meters rowed</string>
 </resources>

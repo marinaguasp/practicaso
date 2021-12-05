@@ -53,7 +53,7 @@ public class Canoe {
         numberOfReadyRowers = 0;
     }
 
-    public boolean hasStarted(){
-       return metersAdvanced > 0;
+    public boolean rowersHaveRowed(){
+       return metersRowed > 0;
     }
 }

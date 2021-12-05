@@ -29,7 +29,7 @@ public class Helmsman extends Thread {
     }
 
     public void updateCanoeState(){
-        if (canoe.hasStarted()) {
+        if (canoe.rowersHaveRowed()) {
             canoe.updateMetersAdvanced();
             showMetersRowed();
             canoe.setFinal(canoe.getMetersAdvanced() >= race.getRaceMeters());

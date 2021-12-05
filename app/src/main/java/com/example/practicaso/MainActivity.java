@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         Log.d("MyTag",
-                String.format("End of the race. The winner is: %s",
+                String.format("End of the race. The winner is Canoe: %s",
                         theRace.getWinner().getName()));
     }
 

@@ -1,9 +1,12 @@
 package com.example.practicaso;
 
 public class Canoe {
+
+    private static final int TOTAL_ROWERS = 3;
+
     private String name;
     private int metersAdvanced;
-    private boolean isFinal;
+    private boolean hasCrossedFinishLine;
     private int numberOfReadyRowers;
     private int metersRowed;
 
@@ -11,8 +14,41 @@ public class Canoe {
         this.name = name;
     }
 
-    public synchronized boolean isFinal() {
-        return isFinal;
+    public String getName() {
+        return name;
+    }
+
+    public int getMetersAdvanced() {
+        return metersAdvanced;
+    }
+
+    public void setHasCrossedFinishLine(boolean hasCrossedFinishLine) {
+        this.hasCrossedFinishLine = hasCrossedFinishLine;
+    }
+
+    public boolean hasNotCrossedFinishLine() {
+        return !hasCrossedFinishLine;
+    }
+
+    public boolean rowersHaveRowed() {
+        return metersRowed > 0;
+    }
+
+    public void addMetersRowed(int meters) {
+        metersRowed += meters;
+    }
+
+    public void updateMetersAdvanced() {
+        metersAdvanced += metersRowed;
+        metersRowed = 0;
+    }
+
+    public void resetNumberOfReadyRowers() {
+        numberOfReadyRowers = 0;
+    }
+
+    public synchronized boolean areRowersReady() {
+        return numberOfReadyRowers == TOTAL_ROWERS;
     }
 
     public synchronized void addReadyRowerAndWaitHelmsman() {
@@ -22,38 +58,5 @@ public class Canoe {
         } catch (Exception ignored) {
 
         }
-    }
-
-    public void addMetersRowed(int meters) {
-        metersRowed += meters;
-    }
-
-    public synchronized boolean areRowersReady() {
-        return numberOfReadyRowers == 3;
-    }
-
-    public void setFinal(boolean isFinal) {
-        this.isFinal = isFinal;
-    }
-
-    public int getMetersAdvanced() {
-        return metersAdvanced;
-    }
-
-    public void updateMetersAdvanced() {
-        metersAdvanced += metersRowed;
-        metersRowed = 0;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void resetNumberOfReadyRowers() {
-        numberOfReadyRowers = 0;
-    }
-
-    public boolean rowersHaveRowed() {
-        return metersRowed > 0;
     }
 }

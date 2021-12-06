@@ -3,6 +3,7 @@ package com.example.practicaso;
 import android.util.Log;
 
 public class Helmsman extends Thread {
+
     private final Race race;
     private final Canoe canoe;
 
@@ -13,10 +14,10 @@ public class Helmsman extends Thread {
     }
 
     @Override
-    //Helmsman starts his job
     public void run() {
-        while (!canoe.isFinal()) {   // the race has not finished
-            while (!canoe.areRowersReady()) { // helmsman is waiting for the rowers to be ready
+        while (canoe.hasNotCrossedFinishLine()) {
+            while (!canoe.areRowersReady()) {
+                // helmsman is waiting for the rowers to be ready
             }
             //update the canoe state and notify the rowers.
             synchronized (canoe) {
@@ -29,15 +30,20 @@ public class Helmsman extends Thread {
         race.setCanoeFinished(canoe);
     }
 
-    public void updateCanoeState() {
+    /**
+     * If rowers have rowed, the helmsman has to update total meters advanced and show the advance
+     * in the debug console.
+     * Finally, the helmsman has to update whether the canoe has crossed the end line.
+     */
+    private void updateCanoeState() {
         if (canoe.rowersHaveRowed()) {
             canoe.updateMetersAdvanced();
             showMetersRowed();
-            canoe.setFinal(canoe.getMetersAdvanced() >= race.getRaceMeters());
+            canoe.setHasCrossedFinishLine(canoe.getMetersAdvanced() >= race.getRaceMeters());
         }
     }
 
-    public void showMetersRowed() {
+    private void showMetersRowed() {
         Log.d(String.format("MyTag_%s", canoe.getName()),
                 String.format("I am %s and we have already rowed %s meters.",
                         getName(), canoe.getMetersAdvanced()));

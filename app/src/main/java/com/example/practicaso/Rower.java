@@ -5,6 +5,7 @@ import android.util.Log;
 import java.util.Random;
 
 public class Rower extends Thread {
+
     private final Race race;
     private final Canoe canoe;
 
@@ -14,29 +15,32 @@ public class Rower extends Thread {
         setName(threadName);
     }
 
-
     @Override
     public void run() {
-        while (!canoe.isFinal()) { // the race has not finished
+        while (canoe.hasNotCrossedFinishLine()) {
             canoe.addReadyRowerAndWaitHelmsman(); // each rower notifies that is ready and waits
             synchronized (canoe) {
-                if (!canoe.isFinal()) {
+                if (canoe.hasNotCrossedFinishLine()) {
                     row(); // the rower is rowing
                 }
             }
         }
     }
 
-    private int getMetersToAdd() { // get the number of meters to row randomly
+    private void row() {
+        int metersToRow = getMetersToRow();
+        canoe.addMetersRowed(metersToRow);
+        Log.d(String.format("MyTag_%s", canoe.getName()),
+                String.format("I am %s rowing %s meters.", getName(), metersToRow));
+    }
+
+    /**
+     * Get the meters to row randomly.
+     * @return randomly meters to row.
+     */
+    private int getMetersToRow() {
         Random random = new Random();
         return random.nextInt(race.getMaxMetersRowed() - race.getMinMetersRowed() + 1) +
                 race.getMinMetersRowed();
-    }
-
-    private void row() {
-        int metersToAdd = getMetersToAdd();
-        canoe.addMetersRowed(metersToAdd);
-        Log.d(String.format("MyTag_%s", canoe.getName()),
-                String.format("I am %s rowing %s meters.", getName(), metersToAdd));
     }
 }

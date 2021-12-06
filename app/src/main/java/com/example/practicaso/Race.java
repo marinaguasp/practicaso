@@ -1,6 +1,7 @@
 package com.example.practicaso;
 
 public class Race {
+
     private int raceMeters;
     private int minMetersRowed;
     private int maxMetersRowed;
@@ -28,6 +29,10 @@ public class Race {
         return winner;
     }
 
+    /**
+     * The first canoe that arrives at the finish line is the winner one.
+     * @param canoe winner.
+     */
     public synchronized void setCanoeFinished(Canoe canoe) {
         if (winner == null) {
             winner = canoe;

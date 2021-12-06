@@ -15,8 +15,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void button(View v) {
-
+    public void onClickStartRaceButton(View v) {
         // get properties form the app interface
         EditText minMetersRowedEditText = findViewById(R.id.minMetersRowed);
         EditText maxMetersRowedEditText = findViewById(R.id.maxMetersRowed);
@@ -45,15 +44,14 @@ public class MainActivity extends AppCompatActivity {
         rower1.start();
         rower2.start();
         rower3.start();
+        helmsman1.start();
 
         rower4.start();
         rower5.start();
         rower6.start();
-
-        helmsman1.start();
         helmsman2.start();
 
-        //To see the classification, all the canoes must arrive at the finish line
+        //All the canoes must arrive at the finish line
         try {
             rower1.join();
             rower2.join();
@@ -71,5 +69,4 @@ public class MainActivity extends AppCompatActivity {
                 String.format("End of the race. The winner is Canoe: %s",
                         theRace.getWinner().getName()));
     }
-
 }

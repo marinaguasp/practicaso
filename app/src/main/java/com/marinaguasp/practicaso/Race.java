@@ -1,4 +1,4 @@
-package com.example.practicaso;
+package com.marinaguasp.practicaso;
 
 public class Race {
 

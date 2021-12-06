@@ -1,4 +1,4 @@
-package com.example.practicaso;
+package com.marinaguasp.practicaso;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.example.practicaso", appContext.getPackageName());
+        assertEquals("com.marinaguasp.practicaso", appContext.getPackageName());
     }
 }

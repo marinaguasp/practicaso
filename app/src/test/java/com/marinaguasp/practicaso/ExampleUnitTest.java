@@ -1,4 +1,4 @@
-package com.example.practicaso;
+package com.marinaguasp.practicaso;
 
 import org.junit.Test;
 

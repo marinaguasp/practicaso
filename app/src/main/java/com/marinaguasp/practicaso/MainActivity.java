@@ -3,7 +3,6 @@ package com.marinaguasp.practicaso;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
@@ -40,7 +39,10 @@ public class MainActivity extends AppCompatActivity {
         Rower rower6 = new Rower("RowerB3", theRace, canoeB);
         Helmsman helmsman2 = new Helmsman("HelmsmanB", theRace, canoeB);
 
-        //The rowers and helmsman prepare themselves and start
+        //Create the judge
+        Judge theJudge = new Judge("La Pepa", theRace);
+
+        //The rowers and helmsman prepare themselves and wait for the judge to start.
         rower1.start();
         rower2.start();
         rower3.start();
@@ -51,7 +53,10 @@ public class MainActivity extends AppCompatActivity {
         rower6.start();
         helmsman2.start();
 
-        //All the canoes must arrive at the finish line
+        //the judge starts.
+        theJudge.start();
+
+        //All the canoes must arrive at the finish line and the judge has to show the winner.
         try {
             rower1.join();
             rower2.join();
@@ -62,11 +67,9 @@ public class MainActivity extends AppCompatActivity {
             rower5.join();
             rower6.join();
             helmsman2.join();
+
+            theJudge.join();
         } catch (Exception ignored) {
         }
-
-        Log.d("MyTag",
-                String.format("End of the race. The winner is Canoe: %s",
-                        theRace.getWinner().getName()));
     }
 }

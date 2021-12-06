@@ -17,6 +17,8 @@ public class Rower extends Thread {
 
     @Override
     public void run() {
+        race.addReadyPlayerAndWaitTheJudge();
+
         while (canoe.hasNotCrossedFinishLine()) {
             canoe.addReadyRowerAndWaitHelmsman(); // each rower notifies that is ready and waits
             synchronized (canoe) {
@@ -36,6 +38,7 @@ public class Rower extends Thread {
 
     /**
      * Get the meters to row randomly.
+     *
      * @return randomly meters to row.
      */
     private int getMetersToRow() {

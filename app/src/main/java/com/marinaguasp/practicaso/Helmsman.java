@@ -15,6 +15,8 @@ public class Helmsman extends Thread {
 
     @Override
     public void run() {
+        race.addReadyPlayerAndWaitTheJudge();
+
         while (canoe.hasNotCrossedFinishLine()) {
             while (!canoe.areRowersReady()) {
                 // helmsman is waiting for the rowers to be ready

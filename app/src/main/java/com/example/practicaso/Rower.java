@@ -17,8 +17,8 @@ public class Rower extends Thread {
 
     @Override
     public void run() {
-        while (!canoe.isFinal()) {
-            canoe.addReadyRowerAndWaitHelmsman();
+        while (!canoe.isFinal()) { // the race has not finished
+            canoe.addReadyRowerAndWaitHelmsman(); // each rower notifies that is ready and waits
             synchronized (canoe) {
                 if (!canoe.isFinal()) {
                     row(); // the rower is rowing
@@ -27,7 +27,7 @@ public class Rower extends Thread {
         }
     }
 
-    private int getMetersToAdd() {
+    private int getMetersToAdd() { // get the number of meters to row randomly
         Random random = new Random();
         return random.nextInt(race.getMaxMetersRowed() - race.getMinMetersRowed() + 1) +
                 race.getMinMetersRowed();

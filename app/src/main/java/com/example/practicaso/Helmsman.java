@@ -13,11 +13,12 @@ public class Helmsman extends Thread {
     }
 
     @Override
+    //Helmsman starts his job
     public void run() {
-        while (!canoe.isFinal()) {
-            while (!canoe.areRowersReady()) {
+        while (!canoe.isFinal()) {   // the race has not finished
+            while (!canoe.areRowersReady()) { // helmsman is waiting for the rowers to be ready
             }
-            // rowers ready
+            //update the canoe state and notify the rowers.
             synchronized (canoe) {
                 canoe.resetNumberOfReadyRowers();
                 updateCanoeState();

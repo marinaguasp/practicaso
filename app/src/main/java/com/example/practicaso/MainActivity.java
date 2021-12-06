@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void button(View v) {
 
-        // get properties
+        // get properties form the app interface
         EditText minMetersRowedEditText = findViewById(R.id.minMetersRowed);
         EditText maxMetersRowedEditText = findViewById(R.id.maxMetersRowed);
         EditText totalRaceMetersEditText = findViewById(R.id.totalRaceMeters);
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         int minMeters = Integer.parseInt(minMetersRowedEditText.getText().toString());
         int maxMeters = Integer.parseInt(maxMetersRowedEditText.getText().toString());
         int totalRaceMeters = Integer.parseInt(totalRaceMetersEditText.getText().toString());
-        //Create Race
+        //Create Race and Canoes
         Race theRace = new Race(totalRaceMeters, minMeters, maxMeters);
         Canoe canoeA = new Canoe("A");
         Canoe canoeB = new Canoe("B");
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         Rower rower6 = new Rower("RowerB3", theRace, canoeB);
         Helmsman helmsman2 = new Helmsman("HelmsmanB", theRace, canoeB);
 
-        //The rowers and helmsman prepare themselves and wait at the start line
+        //The rowers and helmsman prepare themselves and start
         rower1.start();
         rower2.start();
         rower3.start();

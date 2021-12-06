@@ -19,10 +19,10 @@ git tag --list "v*"
 
 ## Show version detail
 ````
-git show v1.0
+git show v1.1
 ````
 
 ## Changelog
 
- ### v1.0 - Basic requirements.
+ ### v1.1 - Basic requirements.
  First version with the basic requirements on the instructions of the project.

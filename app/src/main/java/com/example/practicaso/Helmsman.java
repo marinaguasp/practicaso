@@ -29,7 +29,7 @@ public class Helmsman extends Thread {
         race.setCanoeFinished(canoe);
     }
 
-    public void updateCanoeState(){
+    public void updateCanoeState() {
         if (canoe.rowersHaveRowed()) {
             canoe.updateMetersAdvanced();
             showMetersRowed();
@@ -37,7 +37,7 @@ public class Helmsman extends Thread {
         }
     }
 
-    public void showMetersRowed(){
+    public void showMetersRowed() {
         Log.d(String.format("MyTag_%s", canoe.getName()),
                 String.format("I am %s and we have already rowed %s meters.",
                         getName(), canoe.getMetersAdvanced()));

@@ -33,10 +33,10 @@ public class Rower extends Thread {
                 race.getMinMetersRowed();
     }
 
-    private void row(){
-            int metersToAdd = getMetersToAdd();
-            canoe.addMetersRowed(metersToAdd);
-            Log.d(String.format("MyTag_%s", canoe.getName()),
-                    String.format("I am %s rowing %s meters.", getName(), metersToAdd));
+    private void row() {
+        int metersToAdd = getMetersToAdd();
+        canoe.addMetersRowed(metersToAdd);
+        Log.d(String.format("MyTag_%s", canoe.getName()),
+                String.format("I am %s rowing %s meters.", getName(), metersToAdd));
     }
 }

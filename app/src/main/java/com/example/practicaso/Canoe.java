@@ -7,53 +7,53 @@ public class Canoe {
     private int numberOfReadyRowers;
     private int metersRowed;
 
-    public Canoe(String name){
+    public Canoe(String name) {
         this.name = name;
     }
 
-    public synchronized boolean isFinal(){
+    public synchronized boolean isFinal() {
         return isFinal;
     }
 
-    public synchronized void addReadyRowerAndWaitHelmsman(){
+    public synchronized void addReadyRowerAndWaitHelmsman() {
         numberOfReadyRowers++;
-        try{
+        try {
             this.wait();
-        }catch(Exception ignored){
+        } catch (Exception ignored) {
 
         }
     }
 
-    public void addMetersRowed(int meters){
+    public void addMetersRowed(int meters) {
         metersRowed += meters;
     }
 
-    public synchronized boolean  areRowersReady(){
+    public synchronized boolean areRowersReady() {
         return numberOfReadyRowers == 3;
     }
 
-    public void setFinal(boolean isFinal){
+    public void setFinal(boolean isFinal) {
         this.isFinal = isFinal;
     }
 
-    public int getMetersAdvanced(){
+    public int getMetersAdvanced() {
         return metersAdvanced;
     }
 
-    public void updateMetersAdvanced (){
+    public void updateMetersAdvanced() {
         metersAdvanced += metersRowed;
         metersRowed = 0;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public void resetNumberOfReadyRowers(){
+    public void resetNumberOfReadyRowers() {
         numberOfReadyRowers = 0;
     }
 
-    public boolean rowersHaveRowed(){
-       return metersRowed > 0;
+    public boolean rowersHaveRowed() {
+        return metersRowed > 0;
     }
 }

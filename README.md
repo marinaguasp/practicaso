@@ -10,7 +10,7 @@ Marina Jiménez Guasp & Fernando Sanz Blanco.
 Informàtica Industrial - GEEIA.
 
 ## Teacher
-Javier Antich Tobaruela & Francisco Bonnín Font.
+Javier Antich Tobaruela & Francisco Bonnín Pasqual.
 
 ## Show versions list
 ````

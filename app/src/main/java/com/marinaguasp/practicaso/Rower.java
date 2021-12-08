@@ -34,6 +34,10 @@ public class Rower extends Thread {
         canoe.addMetersRowed(metersToRow);
         Log.d(String.format("MyTag_%s", canoe.getName()),
                 String.format("I am %s rowing %s meters.", getName(), metersToRow));
+        try {
+            Thread.sleep(metersToRow);  // simulate rowing effort.
+        } catch (InterruptedException ignored) {
+        }
     }
 
     /**

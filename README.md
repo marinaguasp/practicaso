@@ -31,3 +31,5 @@ git show v1.1
  In this new version, helmsman and rowers wait the judge to start the race.
  The judge will wait for all the players to be ready. Then, he will start the race and wait for
  all the canoes to cross the finish line. At the end, he will show the winner.
+
+ ### v2.1 - Add simulation time while rowing.
